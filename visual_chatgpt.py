@@ -250,7 +250,7 @@ def blend_gt2pt(old_image, new_image, sigma=0.15, steps=100):
     return gaussian_img
 
 
-def cut_dialogue_history(history_memory, keep_last_n_words=500):
+def cut_dialogue_history(history_memory, keep_last_n_words=300):
     if history_memory is None or len(history_memory) == 0:
         return history_memory
     tokens = history_memory.split()
@@ -1564,7 +1564,7 @@ class ConversationBot:
         return gr.update(visible=True), gr.update(visible=False), gr.update(placeholder=place), gr.update(value=label_clear)
 
     def run_text(self, text, state):
-        self.agent.memory.buffer = cut_dialogue_history(self.agent.memory.buffer, keep_last_n_words=500)
+        self.agent.memory.buffer = cut_dialogue_history(self.agent.memory.buffer, keep_last_n_words=300)
         res = self.agent({"input": text.strip()})
         res['output'] = res['output'].replace("\\", "/")
         response = re.sub('(image/[-\w]*.png)', lambda m: f'![](file={m.group(0)})*{m.group(0)}*', res['output'])
