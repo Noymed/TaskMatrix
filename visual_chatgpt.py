@@ -86,7 +86,7 @@ Previous conversation history:
 
 New input: {input}
 Since Visual ChatGPT is a text language model, Visual ChatGPT must use tools to observe images rather than imagination.
-Visual ChatGPT should tell the user his thoughts. 
+The thoughts and observations are only visible for Visual ChatGPT, Visual ChatGPT should remember to repeat important information in the final response for Human. 
 Thought: Do I need to use a tool? {agent_scratchpad} Let's think step by step.
 """
 
